@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import {
   getOptionsitUnit,
   convertTemperatureTo,
-  isIceTemperature
+  isIceTemperature,
 } from "./services/temperature-service";
 import { ButtonConvert } from "./components/ButtonConvert/ButtonConvert";
 
@@ -28,12 +28,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    const temperatureAsFloat = Number.parseFloat(inputValue)
-    if(!isNaN(temperatureAsFloat)) {
+    const temperatureAsFloat = Number.parseFloat(inputValue);
+    if (!isNaN(temperatureAsFloat)) {
       const isColdBackground = isIceTemperature(inputValue, currentUnit);
       setCurrentBackground(isColdBackground ? coldBackground : hotBackground);
     }
-  }, [inputValue])
+  }, [inputValue]);
 
   return (
     <>
